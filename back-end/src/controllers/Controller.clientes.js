@@ -2,7 +2,7 @@ import { db } from "../database/index.js";
 
 //listar clientes
 export const getClientes = (_, res) => {
-  const q = "SELECT * FROM clientes";
+  const q = "SELECT * FROM clientes ORDER BY data_hora DESC;  ";
 
   db.query(q, (err, data) => {
     if (err) return res.json(err);

@@ -7,14 +7,14 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // router dom
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // icons
 import { BsArrowLeftCircleFill } from "react-icons/bs";
 
 function Creater() {
   // creater
-
+  const navigate = useNavigate();
   const [cpfcnpj, setCpfcnpj] = useState("");
   const [razao_social, setRazao_Social] = useState("");
   const [uf, setUf] = useState("");
@@ -33,7 +33,6 @@ function Creater() {
   const [horariofunc, setHorariofunc] = useState("");
   const [agendamento, setAgendamento] = useState("");
   const [obs, setObs] = useState("");
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -59,6 +58,9 @@ function Creater() {
       });
 
       console.log(res);
+
+      // Redirecionar para a tela inicial
+      navigate("/clientes");
       toast.success("Item criado com sucesso!");
     } catch (error) {
       console.error("Erro ao criar item:", error);

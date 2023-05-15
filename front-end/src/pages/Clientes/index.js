@@ -85,7 +85,6 @@ function Clientes() {
             <thead className="rounded-t-lg bg-neutral-100	border-b-2 border-neutral-300 ">
               <tr className="text-right">
                 <th className="p-3 text-left ">STATUS</th>
-                <th className="p-3 text-left ">ID</th>
                 <th className="p-3 text-left">RAZÃO SOCIAL</th>
                 <th className="p-3 text-left">CIDADE</th>
                 <th className="p-3 text-left">UF</th>
@@ -98,52 +97,60 @@ function Clientes() {
                 <th className="p-3 text-left ">AGENCIA</th>
                 <th className="p-3 text-left ">CONTA</th>
                 <th className="p-3 text-left ">CÓDIGO</th>
-                <th className="p-3 text-left ">DT REGISTRO</th>
                 <th className="p-3 text-right ">#</th>
               </tr>
             </thead>
             <tbody>
               {/* buscar dados */}
-              {itens.map((db) => (
-                <tr className="text-right border-b border-opacity-20">
-                  <td className="p-3 text-left ">
-                    <span class="float-right rounded-md bg-green-600/50 px-4 py-px text-xs font-semibold uppercase text-emerald-100	 antialiased">
-                      Ativo
-                    </span>
-                  </td>
-                  <td className="px-3 py-2 text-left">{db.id}</td>
-                  <td className="px-3 py-2 text-left">{db.Razão_Social}</td>
-                  <td className="px-3 py-2 text-left">{db.Cidade}</td>
-                  <td className="px-3 py-2 text-left">{db.UF}</td>
-                  <td className="px-3 py-2 text-left">{db.TELEFONE}</td>
-                  <td className="px-3 py-2 text-left">{db.RESPONSÁVEL}</td>
-                  <td className="px-3 py-2 text-left">{db.COBRA}</td>
-                  <td className="px-3 py-2 text-left">{db.VALOR}</td>
-                  <td className="px-3 py-2 text-left">{db.INF_CONTA}</td>
-                  <td className="px-3 py-2 text-left">{db.TIPO_DE_CONTA}</td>
-                  <td className="px-3 py-2 text-left">{db.AGENCIA}</td>
-                  <td className="px-3 py-2 text-left">{db.CONTA}</td>
-                  <td className="px-3 py-2 text-left">{db.data_hora}</td>
-                  <td className="px-3 py-2 text-left">{db.CÓDIGO}</td>
 
-                  <td className="px-5 py-2 text-left ">
-                    {/* visualizar */}
-                    <td width={30}>
-                      <BiShowAlt onClick={() => excluirItem(db.id)} />
+              {itens
+                .sort(
+                  (a, b) => new Date(b["data_hora"]) - new Date(a["data_hora"])
+                )
+                .map((db, index) => (
+                  <tr
+                    className={`text-right border-b border-opacity-20 ${
+                      index === 0 ? "recent-item" : "fade-out"
+                    }`}
+                    key={db.id}
+                  >
+                    <td className="p-3 text-left">
+                      <span className="float-right rounded-md bg-green-600/50 px-4 py-px text-xs font-semibold uppercase text-emerald-100 antialiased">
+                        Ativo
+                      </span>
                     </td>
 
-                    {/* editar */}
-                    <td width={30}>
-                      <BiEdit onClick={() => excluirItem(db.id)} />
-                    </td>
+                    <td className="px-3 py-2 text-left">{db.Razão_Social}</td>
+                    <td className="px-3 py-2 text-left">{db.Cidade}</td>
+                    <td className="px-3 py-2 text-left">{db.UF}</td>
+                    <td className="px-3 py-2 text-left">{db.TELEFONE}</td>
+                    <td className="px-3 py-2 text-left">{db.RESPONSÁVEL}</td>
+                    <td className="px-3 py-2 text-left">{db.COBRA}</td>
+                    <td className="px-3 py-2 text-left">{db.VALOR}</td>
+                    <td className="px-3 py-2 text-left">{db.INF_CONTA}</td>
+                    <td className="px-3 py-2 text-left">{db.TIPO_DE_CONTA}</td>
+                    <td className="px-3 py-2 text-left">{db.AGENCIA}</td>
+                    <td className="px-3 py-2 text-left">{db.CONTA}</td>
+                    <td className="px-3 py-2 text-left">{db.CÓDIGO}</td>
 
-                    {/* excluir */}
-                    <td width={30}>
-                      <BiTrashAlt onClick={() => excluirItem(db.id)} />
+                    <td className="px-5 py-2 text-left ">
+                      {/* visualizar */}
+                      <td width={30}>
+                        <BiShowAlt onClick={() => excluirItem(db.id)} />
+                      </td>
+
+                      {/* editar */}
+                      <td width={30}>
+                        <BiEdit onClick={() => excluirItem(db.id)} />
+                      </td>
+
+                      {/* excluir */}
+                      <td width={30}>
+                        <BiTrashAlt onClick={() => excluirItem(db.id)} />
+                      </td>
                     </td>
-                  </td>
-                </tr>
-              ))}
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
