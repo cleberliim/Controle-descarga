@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import { BiTrashAlt, BiEdit, BiShowAlt } from "react-icons/bi";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
+
 // toast
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -141,7 +142,9 @@ function Clientes() {
 
                       {/* editar */}
                       <td width={30}>
-                        <BiEdit onClick={() => excluirItem(db.id)} />
+                        <Link to={"/editar"}>
+                          <BiEdit />
+                        </Link>
                       </td>
 
                       {/* excluir */}
