@@ -12,98 +12,98 @@ import "react-toastify/dist/ReactToastify.css";
 // router dom
 import { Link } from "react-router-dom";
 
-function EditForm() {
-  const [cpfcnpj, setCpfcnpj] = useState("");
-  const [razao_social, setRazao_Social] = useState("");
-  const [uf, setUf] = useState("");
-  const [cidade, setCidade] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [responsavel, setResponsavel] = useState("");
-  const [cobra, setCobra] = useState("");
-  const [volumeton, setVolumeton] = useState("");
-  const [valor, setValor] = useState("");
-  const [infconta, setIfconta] = useState("");
-  const [tipoconta, setTipoconta] = useState("");
-  const [agencia, setAgencia] = useState("");
-  const [conta, setConta] = useState("");
-  const [codigo, setCodigo] = useState("");
-  const [titular, setTitular] = useState("");
-  const [horariofunc, setHorariofunc] = useState("");
-  const [agendamento, setAgendamento] = useState("");
-  const [obs, setObs] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await axios.put("http://localhost:8080/id?", {
-        cpfcnpj,
-        razao_social,
-        uf,
-        cidade,
-        telefone,
-        responsavel,
-        cobra,
-        volumeton,
-        valor,
-        infconta,
-        tipoconta,
-        agencia,
-        conta,
-        codigo,
-        titular,
-        horariofunc,
-        agendamento,
-        obs,
-      });
-
-      console.log(response.data); // Exibir resposta do servidor
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  return (
-    <div className="container h-full mx-auto md:w-auto mt-10 px-20 text-xs">
-      <button className=" text-indigo-500		text-2xl	 font-bold py-2 px-4 rounded float-right">
-        <Link to="/Clientes">
-          <BsArrowLeftCircleFill />
-        </Link>
-      </button>
-      <h1 className="ml-4 text-lg mb-20 font-bold text-gray-400">
-        Adicionar dados
-      </h1>
-
-      <form onSubmit={handleSubmit} className="  mx-auto w-full my-8">
-        <div className="flex flex-row">
-          <div className="ml-4 flex">
-            <label
-              className="  block mb-2 font-bold text-gray-700"
-              htmlFor="razao_social"
-            >
-              RAZÃO SOCIAL:
-              <input
-                className="w-60 px-3 py-2 text-gray-700 bg-gray-100 rounded"
-                type="text"
-                value={razao_social}
-                onChange={(e) => setRazao_Social(e.target.value)}
-              />
-            </label>
-          </div>
-          <div className=" flex">
-            <label
-              className="block mb-2 font-bold text-gray-700 flex-1"
-              htmlFor="cpfcnpj"
-            >
-              CPF/CNPJ:
-              <input
-                className="w-60 px-3 py-2 text-gray-700 bg-gray-100 rounded flex-2"
-                type="text"
-                value={cpfcnpj}
-                onChange={(e) => setCpfcnpj(e.target.value)}
-              />
-            </label>
-          </div>
+function EditForm( ) {
+    const [cpfcnpj, setCpfcnpj] = useState("");
+    const [razao_social, setRazao_Social] = useState("");
+    const [uf, setUf] = useState("");
+    const [cidade, setCidade] = useState("");
+    const [telefone, setTelefone] = useState("");
+    const [responsavel, setResponsavel] = useState("");
+    const [cobra, setCobra] = useState("");
+    const [volumeton, setVolumeton] = useState("");
+    const [valor, setValor] = useState("");
+    const [infconta, setIfconta] = useState("");
+    const [tipoconta, setTipoconta] = useState("");
+    const [agencia, setAgencia] = useState("");
+    const [conta, setConta] = useState("");
+    const [codigo, setCodigo] = useState("");
+    const [titular, setTitular] = useState("");
+    const [horariofunc, setHorariofunc] = useState("");
+    const [agendamento, setAgendamento] = useState("");
+    const [obs, setObs] = useState("");
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      try {
+        const response = await axios.put("http://localhost:8080/id?", {
+          cpfcnpj,
+          razao_social,
+          uf,
+          cidade,
+          telefone,
+          responsavel,
+          cobra,
+          volumeton,
+          valor,
+          infconta,
+          tipoconta,
+          agencia,
+          conta,
+          codigo,
+          titular,
+          horariofunc,
+          agendamento,
+          obs,
+        });
+  
+        console.log(response.data); // Exibir resposta do servidor
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    return (
+      <div className="container h-full mx-auto md:w-auto mt-10 px-20 text-xs">
+        <button className=" text-indigo-500 text-2xl font-bold py-2 px-4 rounded float-right">
+          <Link to="/Clientes">
+            <BsArrowLeftCircleFill />
+          </Link>
+        </button>
+        <h1 className="ml-4 text-lg mb-20 font-bold text-gray-400">
+          Adicionar dados
+        </h1>
+  
+        <form onSubmit={handleSubmit} className="mx-auto w-full my-8">
+          <div className="flex flex-row">
+            <div className="ml-4 flex">
+              <label
+                className="block mb-2 font-bold text-gray-700"
+                htmlFor="razao_social"
+              >
+                RAZÃO SOCIAL:
+                <input
+                  className="w-60 px-3 py-2 text-gray-700 bg-gray-100 rounded"
+                  type="text"
+                  value={razao_social}
+                  onChange={(e) => setRazao_Social(e.target.value)}
+                />
+              </label>
+            </div>
+            <div className="flex">
+              <label
+                className="block mb-2 font-bold text-gray-700 flex-1"
+                htmlFor="cpfcnpj"
+              >
+                CPF/CNPJ:
+                <input
+                  className="w-60 px-3 py-2 text-gray-700 bg-gray-100 rounded flex-2"
+                  type="text"
+                  value={cpfcnpj}
+                  onChange={(e) => setCpfcnpj(e.target.value)}
+                />
+              </label>
+            </div>
           <div className="flex">
             <label
               className="block mb-2 font-bold text-gray-700"
@@ -301,7 +301,7 @@ function EditForm() {
           className="ml-4 bg-indigo-500	 mt-10 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded float-right"
           type="submit"
         >
-          Adiconar
+          editar
         </button>
       </form>
       {/* plugin toast */}

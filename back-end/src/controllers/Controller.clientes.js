@@ -58,7 +58,7 @@ export const deleteClientes = (req, res) => {
 //Atualizar
 export const updateUser = (req, res) => {
   const q =
-"  UPDATE clientes SET `CPFCNPJ_DA_CONTA` = NULL, `Razão_Social` = NULL, `UF` = NULL, `Cidade` = NULL, `Cidade` = NULL, `TELEFONE` = NULL, `RESPONSÁVEL` = NULL, `COBRA` = NULL, `VOLUMETONELADA` = NULL, `VALOR` = NULL, `INF_CONTA` = NULL, `TIPO_DE_CONTA` = NULL, `AGENCIA` = NULL, `CONTA` = NULL, `Cidade` = NULL, `CÓDIGO` = NULL, `TITULAR` = NULL, `HORARIO_DE_FUNC` = NULL, `AGENDAMENTO` = '14', `OBS` = ? WHERE `id` = ?;"
+"  UPDATE clientes SET `CPFCNPJ_DA_CONTA` = NULL, `Razão_Social` = NULL, `UF` = NULL, `Cidade` = NULL, `Cidade` = NULL, `TELEFONE` = NULL, `RESPONSÁVEL` = NULL, `COBRA` = NULL, `VOLUMETONELADA` = NULL, `VALOR` = NULL, `INF_CONTA` = NULL, `TIPO_DE_CONTA` = NULL, `AGENCIA` = NULL, `CONTA` = NULL, `Cidade` = NULL, `CÓDIGO` = NULL, `TITULAR` = NULL, `HORARIO_DE_FUNC` = NULL, `AGENDAMENTO` = NULL, `OBS` = ? WHERE `id` = ?;"
   const values = [
     req.body.cpfcnpj,
     req.body.razao_social,
